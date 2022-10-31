@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { Wine } from "../../types/wine";
 import {
   CardContainer,
@@ -10,15 +11,16 @@ import {
   WrapperH,
 } from "./card.style";
 
-const Card: React.FC<Wine> = ({ id, image, name, price, discount, priceMember, priceNonMember  }) => {
+const Card: React.FC<Wine> = ({ id, image, name, price, discount, priceMember, priceNonMember }) => {
   const priceVip = priceMember.toFixed(2);
   const integer = Math.trunc(priceMember);
   const decimal = priceVip.substring(priceVip.length-2, priceVip.length);
   const priceNonVip = priceNonMember.toFixed(2).replace(".", ",");
   const defaultPrice = price.toFixed(2).replace(".", ",");
+  const router = useRouter();
   
   return (
-    <CardContainer key={id} >
+    <CardContainer key={id} onClick={() => router.push('/product')}>
       <CardImage src={image}/>
       <CardIcon src="/selo.png"/>
       <NameText>{name}</NameText>

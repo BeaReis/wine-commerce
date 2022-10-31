@@ -4,7 +4,8 @@ const Filter: React.FC = () => {
     return(
         <FilterContainer>
             <FilterTitle>Refine sua busca</FilterTitle>
-            <Category>Something</Category>
+            <Category>Por preço</Category>
+            
         </FilterContainer>
     )
 }

@@ -14,7 +14,14 @@ const Pagination: React.FC<Props> = ({ setPagNumber, numberOfPages }) => {
   return (
     <PagWrapper>
       {numberOfPages &&
-        numOfPages.map((number, index) => <PagButton key={index} onClick={() => setPagNumber(number)}>{number}</PagButton>)}
+        numOfPages.map((number, index) => (
+          <PagButton
+            key={index}
+            onClick={() => setPagNumber(number)}
+          >
+            {number}
+          </PagButton>
+        ))}
     </PagWrapper>
   );
 };
