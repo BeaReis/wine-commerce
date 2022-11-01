@@ -2,13 +2,14 @@ import { GridContainer, GridItems, ProductQttTitle } from "./grid.style";
 
 interface Props {
   children: React.ReactNode;
+  foundItems: number;
 }
 
-const Grid: React.FC<Props> = ({ children }) => {
+const Grid: React.FC<Props> = ({ children, foundItems }) => {
     
   return (
     <GridContainer>
-      <ProductQttTitle>0 produtos encontrados</ProductQttTitle>
+      <ProductQttTitle>{foundItems} produtos encontrados</ProductQttTitle>
       <GridItems>{children}</GridItems>    
     </GridContainer>
   );

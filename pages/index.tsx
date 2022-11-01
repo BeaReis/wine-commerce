@@ -14,11 +14,15 @@ import { Catalog } from "../src/types/catalog";
 const Home: NextPage = () => {
   const [catalog, setCatalog] = useState<Catalog | undefined>();
   const [pagNumber, setPagNumber] = useState<number>(1);
+  const [filter, setFilter] = useState<number>(0);
   const refPagNumber = useRef(pagNumber);
 
   const fetchCatalog = async () => {
     const response = await getWineCatalog(pagNumber);
-    if (response) setCatalog(response);
+    if (response) {
+      setCatalog(response);
+      setFilter(response.totalItems);
+    }
     console.log("Quantas");
   };
 
@@ -36,7 +40,7 @@ const Home: NextPage = () => {
     <Container>
       <Filter />
       <Wrapper>
-        <Grid>
+        <Grid foundItems={filter}>
           {catalog &&
             catalog.items.map((wine, index) => (
               <Wrapper key={index}>

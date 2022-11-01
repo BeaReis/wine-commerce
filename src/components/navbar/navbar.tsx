@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import {
   Nav,
   NavIcon,
@@ -11,11 +12,12 @@ const Navbar: React.FC = () => {
   const busca = "/busca.png";
   const conta = "/conta.png";
   const wine = "/wine.png";
+  const router = useRouter();
 
   return (
     <>
       <Nav>
-        <NavIcon src={wine} type="logo"></NavIcon>
+        <NavIcon src={wine} type="logo" onClick={() => router.push('/')}/>
         <NavItemWrapper>
           <NavItem>Clube</NavItem>
           <NavItem>Loja</NavItem>
