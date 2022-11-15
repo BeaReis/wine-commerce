@@ -5,7 +5,7 @@ import CardBtn from "../src/components/button/card/cardBtn";
 import Pagination from "../src/components/button/pagination/pagination";
 import Card from "../src/components/card/card";
 import { Container } from "../src/components/common/container.style";
-import { Wrapper } from "../src/components/common/wrapper.style";
+import { WrapperV } from "../src/components/common/wrapper.style";
 import Filter from "../src/components/filter/filter";
 import Grid from "../src/components/grid/grid";
 import getWineCatalog from "../src/services/getWineCatalog";
@@ -39,14 +39,14 @@ const Home: NextPage = () => {
   return (
     <Container>
       <Filter />
-      <Wrapper>
+      <WrapperV>
         <Grid foundItems={filter}>
           {catalog &&
             catalog.items.map((wine, index) => (
-              <Wrapper key={index}>
+              <WrapperV key={index}>
                 <Card {...wine}/>
                 <CardBtn />
-              </Wrapper>
+              </WrapperV>
             ))}
         </Grid>
         {catalog && (
@@ -55,7 +55,7 @@ const Home: NextPage = () => {
             numberOfPages={catalog?.totalPages}
           />
         )}
-      </Wrapper>
+      </WrapperV>
     </Container>
   );
 };

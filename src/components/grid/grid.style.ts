@@ -5,7 +5,6 @@ export const GridContainer = styled.div`
     flex-direction: column;
     width: 832px;
     height: 1279px;
-    border: 1px black solid;
 `
 
 export const ProductQttTitle = styled.p`

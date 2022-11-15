@@ -4,7 +4,6 @@ import color from "../../../public/colors.json";
 export const FilterContainer = styled.div`
   width: 256px;
   margin-right: 32px;
-  border: 1px black solid;
 `;
 
 export const FilterTitle = styled.p`

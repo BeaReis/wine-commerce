@@ -1,10 +1,12 @@
 import { useRouter } from "next/router";
 import {
+  CartCounter,
   Nav,
   NavIcon,
   NavIconWrapper,
   NavItem,
   NavItemWrapper,
+  Wrapper,
 } from "./navbar.style";
 
 const Navbar: React.FC = () => {
@@ -13,11 +15,12 @@ const Navbar: React.FC = () => {
   const conta = "/conta.png";
   const wine = "/wine.png";
   const router = useRouter();
+  const counter = 0;
 
   return (
     <>
       <Nav>
-        <NavIcon src={wine} type="logo" onClick={() => router.push('/')}/>
+        <NavIcon src={wine} type="logo" onClick={() => router.push("/")} />
         <NavItemWrapper>
           <NavItem>Clube</NavItem>
           <NavItem>Loja</NavItem>
@@ -28,7 +31,10 @@ const Navbar: React.FC = () => {
         <NavIconWrapper>
           <NavIcon src={busca} type="icon" />
           <NavIcon src={conta} type="icon" />
-          <NavIcon src={cart} type="icon" />
+          <Wrapper>
+            <NavIcon src={cart} type="icon" />
+            <CartCounter>{counter}</CartCounter>
+          </Wrapper>
         </NavIconWrapper>
       </Nav>
     </>

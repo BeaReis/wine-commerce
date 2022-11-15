@@ -1,4 +1,3 @@
-import { StaticImageData } from "next/image";
 import styled from "styled-components";
 import colors from "../../../public/colors.json";
 
@@ -53,3 +52,23 @@ export const NavIconWrapper = styled.div`
   flex-wrap: wrap;
   gap: 42px;
 `;
+
+export const Wrapper = styled.div`
+  position: relative;
+`
+
+export const CartCounter = styled.div`
+  position: absolute;
+  top: 35px;
+  left: 35px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid black;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  text-align: center;
+  background-color: ${colors.neutrals.white};
+  color: ${colors.primary.dark_pink};
+`
