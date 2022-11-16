@@ -2,7 +2,7 @@ import { GridContainer, GridItems, ProductQttTitle } from "./grid.style";
 
 interface Props {
   children: React.ReactNode;
-  foundItems: number;
+  foundItems?: number;
 }
 
 const Grid: React.FC<Props> = ({ children, foundItems }) => {

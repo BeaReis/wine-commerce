@@ -8,43 +8,32 @@ import { Container } from "../src/components/common/container.style";
 import { WrapperV } from "../src/components/common/wrapper.style";
 import Filter from "../src/components/filter/filter";
 import Grid from "../src/components/grid/grid";
-import getWineCatalog from "../src/services/getWineCatalog";
+import { useAppDispatch, useAppSelector } from "../src/redux/hooks";
+import { fetchCatalog } from "../src/redux/slicers/catalogSlicer";
 import { Catalog } from "../src/types/catalog";
 
 const Home: NextPage = () => {
-  const [catalog, setCatalog] = useState<Catalog | undefined>();
+  const [catalog, setCatalog] = useState<Catalog | null>();
   const [pagNumber, setPagNumber] = useState<number>(1);
-  const [filter, setFilter] = useState<number>(0);
-  const refPagNumber = useRef(pagNumber);
-
-  const fetchCatalog = async () => {
-    const response = await getWineCatalog(pagNumber);
-    if (response) {
-      setCatalog(response);
-      setFilter(response.totalItems);
-    }
-    console.log("Quantas");
-  };
+  const productList = useAppSelector((state) => state.catalog.catalog);
+  const dispatch = useAppDispatch();
+  // const [filter, setFilter] = useState<number>(0);
+  // const refPagNumber = useRef(pagNumber);
 
   useEffect(() => {
-    if (!catalog) fetchCatalog();
-    if (refPagNumber.current !== pagNumber) {
-      fetchCatalog();
-      refPagNumber.current = pagNumber;
-    }
-  }, [catalog, pagNumber]);
-
-  console.log(catalog);
+    dispatch(fetchCatalog(pagNumber));
+    setCatalog(productList);
+  });
 
   return (
     <Container>
       <Filter />
       <WrapperV>
-        <Grid foundItems={filter}>
+        <Grid foundItems={catalog?.totalItems}>
           {catalog &&
             catalog.items.map((wine, index) => (
               <WrapperV key={index}>
-                <Card {...wine}/>
+                <Card {...wine} />
                 <CardBtn />
               </WrapperV>
             ))}

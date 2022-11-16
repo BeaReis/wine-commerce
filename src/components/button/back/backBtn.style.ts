@@ -1,16 +1,10 @@
 import styled from "styled-components";
-import colors from "../../../public/colors.json";
+import colors from "../../../../public/colors.json"
 
 interface Props {
-  backBtn?: boolean;
-  productInfo?: boolean;
-}
-
-export const ProductImg = styled.img`
-  width: 381px;
-  height: 579px;
-  object-fit: contain;
-`;
+    backBtn?: boolean;
+  }
+  
 
 export const Arrow = styled.div<Props>`
   ${(props) => {
@@ -36,7 +30,7 @@ export const Arrow = styled.div<Props>`
   padding: 3px;
 `;
 
-export const BackBtn = styled.button`
+export const BackButton = styled.button`
     font-family: 'Titillium Web', sans-serif;
     color: ${colors.neutrals.black};
     font-size: 18px;
@@ -47,28 +41,4 @@ export const BackBtn = styled.button`
     text-align: center;
     border: none;
     cursor: pointer;
-`
-export const WrapperH = styled.div<Props>`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    ${(props) => {
-        if (props.productInfo) {
-            return`
-            justify-content: center;
-            margin: 25px 0 0 130px;
-            `
-        } else {
-            return`
-            justify-content: flex-start;
-            `
-        }
-    }}
-`
-
-export const WrapperV = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
 `

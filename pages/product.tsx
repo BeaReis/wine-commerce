@@ -1,21 +1,17 @@
 import { NextPage } from "next";
+import BackBtn from "../src/components/button/back/backBtn";
 import { Container } from "../src/components/common/container.style";
 import {
-  Arrow,
-  BackBtn,
   ProductImg,
   WrapperH,
   WrapperV,
-} from "../src/components/product/productImg.style";
+} from "../src/components/productInfo/productInfo.style";
 
 const Product: NextPage = () => {
   return (
     <Container>
       <WrapperV>
-        <WrapperH>
-          <Arrow backBtn></Arrow>
-          <BackBtn>Voltar</BackBtn>
-        </WrapperH>
+        <BackBtn />
         <WrapperH productInfo>
           <ProductImg src="" />
         </WrapperH>
